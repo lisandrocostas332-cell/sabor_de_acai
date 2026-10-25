@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#542b3a">
+<title>Sabor de Açaí | Menú</title>
+<style>
+:root{--wine:#542b3a;--berry:#8d4058;--pink:#f7e9ec;--cream:#fffaf5;--ink:#30252a;--muted:#76676c;--gold:#d7a65a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+header{background:linear-gradient(135deg,#542b3a,#8d4058);color:#fff;padding:30px 18px 36px;text-align:center}
+.brand{font-size:12px;letter-spacing:4px;text-transform:uppercase;opacity:.85}.logo{font-family:Georgia,serif;font-size:clamp(36px,8vw,58px);margin:10px 0 8px;font-weight:normal}.tagline{margin:0 auto;max-width:480px;line-height:1.6;color:#f9eaf0}
+main{max-width:1050px;margin:auto;padding:24px 16px 50px}.intro{text-align:center;margin:6px 0 24px}.intro h2{font-family:Georgia,serif;font-size:28px;font-weight:normal;margin:0 0 8px}.intro p{color:var(--muted);margin:0;line-height:1.5}
+.filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:22px 0 26px}.filter{border:1px solid #e4cbd2;background:#fff;color:var(--wine);border-radius:30px;padding:10px 15px;font-size:13px;cursor:pointer}.filter.active,.filter:hover{background:var(--wine);color:#fff;border-color:var(--wine)}
+.section-title{font-family:Georgia,serif;font-size:23px;font-weight:normal;margin:30px 0 14px;color:var(--wine)}
+.grid{display:grid;grid-template-columns:repeat( auto-fit,minmax(220px,1fr));gap:16px}.card{background:#fff;border:1px solid #f0e3e5;border-radius:17px;overflow:hidden;box-shadow:0 5px 18px #542b3a0b;display:flex;flex-direction:column}.photo{height:155px;background:linear-gradient(135deg,#f7e9ec,#f4d9df);display:flex;align-items:center;justify-content:center;font-size:48px}.photo img{width:100%;height:100%;object-fit:cover;display:block}.card-body{padding:16px;display:flex;flex-direction:column;flex:1}.card h3{font-family:Georgia,serif;font-weight:normal;font-size:19px;margin:0 0 8px;color:var(--wine)}.desc{font-size:13px;line-height:1.5;color:var(--muted);margin:0 0 15px;flex:1}.bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}.price{font-weight:bold;font-size:19px;color:var(--berry);white-space:nowrap}.order{font-size:12px;text-decoration:none;color:var(--wine);border:1px solid #d9b9c3;border-radius:20px;padding:8px 10px}.order:hover{background:var(--pink)}
+.note{background:var(--pink);padding:16px;border-radius:14px;font-size:13px;color:#644652;line-height:1.6;margin-top:26px}.extras{font-size:14px;line-height:1.8;color:var(--muted)}footer{background:#321d26;color:#f8e9ed;text-align:center;padding:25px 16px;font-size:12px;line-height:1.8}footer strong{font-family:Georgia,serif;font-size:19px;font-weight:normal}
+@media(min-width:760px){main{padding-top:34px}.photo{height:175px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Un antojo especial</div>
+  <h1 class="logo">Sabor de Açaí</h1>
+  <p class="tagline">Un menú hecho para disfrutar cada momento.</p>
+</header>
+<main>
+  <section class="intro">
+    <h2>Nuestro menú</h2>
+    <p>Explora nuestras opciones y encuentra tu próximo antojo.</p>
+  </section>
+  <nav class="filters" aria-label="Filtrar menú">
+    <button class="filter active" data-filter="Todos">Todo el menú</button>
+    <button class="filter" data-filter="Panqueques">Panqueques</button>
+    <button class="filter" data-filter="Waffles">Waffles</button>
+    <button class="filter" data-filter="Postres">Postres</button>
+    <button class="filter" data-filter="Café y bebidas">Café y bebidas</button>
+    <button class="filter" data-filter="Paninis y tostadas">Paninis y tostadas</button>
+  </nav>
+  <div id="catalog"></div>
+  <div class="note"><strong>Adicionales de fresas con crema</strong><br>
+    Nutella: + Bs 5 · Mixto (durazno y frutilla): + Bs 5 · Solo durazno: + Bs 10.
+    <p class="extras">Los precios están expresados en bolivianos (Bs).</p>
+  </div>
+</main>
+<footer>
+  <strong>Sabor de Açaí</strong><br>
+  Gracias por elegirnos.<br>
+  <span>Para pedidos y consultas, comunícate directamente con el negocio.</span>
+</footer>
+<script>
+/* CATÁLOGO: puedes cambiar nombres, descripciones y precios en esta lista.
+   Las imágenes son ilustrativas; reemplázalas por fotos reales de tus productos. */
+const products = [
+ {name:"Panqueques",category:"Panqueques",description:"Con durazno, frutilla, Oreo, leche condensada y chocolate.",price:25,emoji:"🥞"},
+ {name:"Panqueques con helado",category:"Panqueques",description:"Panqueques con durazno, frutilla, Oreo, leche condensada, chocolate y helado.",price:30,emoji:"🥞"},
+ {name:"Waffles con frutas",category:"Waffles",description:"Waffles acompañados de frutas, galletas y crema.",price:28,emoji:"🧇"},
+ {name:"Waffles con helado",category:"Waffles",description:"Waffles con frutas, galletas, crema y helado.",price:32,emoji:"🧇"},
+ {name:"Crunchi Fresa",category:"Postres",description:"Frutilla, crema, 4 Oreos, Nutella, leche en polvo y jalea.",price:45,emoji:"🍓"},
+ {name:"Fresas con crema",category:"Postres",description:"Fresas frescas con crema. Consulta las opciones disponibles.",price:"18 · 23 · 35",emoji:"🍓"},
+ {name:"Americano",category:"Café y bebidas",description:"Doble espresso con agua caliente, intenso y ligero.",price:10,emoji:"☕"},
+ {name:"Choco Nube",category:"Café y bebidas",description:"Chocolate caliente con suaves marshmallows.",price:16,emoji:"☕"},
+ {name:"Latte",category:"Café y bebidas",description:"Espresso con abundante leche cremosa.",price:14,emoji:"☕"},
+ {name:"Capuccino",category:"Café y bebidas",description:"Doble espresso, leche vaporizada y espuma.",price:14,emoji:"☕"},
+ {name:"Panini especial",category:"Paninis y tostadas",description:"Panini de tocino con jamón, queso crema, mozzarella, salsa y choclo.",price:27,emoji:"🥪"},
+ {name:"Panini simple",category:"Paninis y tostadas",description:"Panini de jamón con queso crema, mozzarella y choclo.",price:23,emoji:"🥪"},
+ {name:"Tostada",category:"Paninis y tostadas",description:"Tostada de doble jamonada y queso.",price:12,emoji:"🥪"}
+];
+const catalog=document.getElementById("catalog");
+function render(filter="Todos"){
+ catalog.innerHTML="";
+ const filtered=products.filter(p=>filter==="Todos"||p.category===filter);
+ const groups=[...new Set(filtered.map(p=>p.category))];
+ groups.forEach(group=>{
+   const title=document.createElement("h2");title.className="section-title";title.textContent=group;catalog.appendChild(title);
+   const grid=document.createElement("div");grid.className="grid";
+   filtered.filter(p=>p.category===group).forEach(p=>{
+     const card=document.createElement("article");card.className="card";
+     const photo=document.createElement("div");photo.className="photo";photo.textContent=p.emoji;
+     const body=document.createElement("div");body.className="card-body";
+     const h=document.createElement("h3");h.textContent=p.name;
+     const d=document.createElement("p");d.className="desc";d.textContent=p.description;
+     const bottom=document.createElement("div");bottom.className="bottom";
+     const price=document.createElement("span");price.className="price";price.textContent=typeof p.price==="number"?"Bs "+p.price:"Bs "+p.price;
+     bottom.appendChild(price);body.append(h,d,bottom);card.append(photo,body);grid.appendChild(card);
+   });
+   catalog.appendChild(grid);
+ });
+}
+document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{
+ document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+ btn.classList.add("active");render(btn.dataset.filter);
+}));
+render();
+</script>
+</body>
+</html>
